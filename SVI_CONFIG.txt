@@ -1,0 +1,70 @@
+Basic SVI Config Example:
+
+Switch 0:
+enable
+config t
+hostname Switch0
+enable password password
+>>
+vlan 10
+name examplevlan
+int vlan 10
+ip address 10.0.10.1 255.255.255.0
+des < insert description here
+exit
+>>
+int range fa0/2-3
+switchport mode access
+switchport access vlan 10
+exit 
+>>
+int fa0/1
+switchport mode trunk
+exit
+exit
+>>
+wr
+copy run start
+
+
+Switch 1:
+enable
+config t
+hostname Switch1
+enable password password
+>>
+vlan 10
+name examplevlan
+int vlan 10
+ip address 10.0.10.1 255.255.255.0
+des < insert description here
+exit
+>>
+int range fa0/2-3
+switchport mode access
+switchport access vlan 10
+exit 
+>>
+int fa0/1
+switchport mode trunk
+exit
+exit
+>>
+wr
+copy run start
+
+
+Multi Layered Switch:
+enable 
+config t
+hostname MLS
+enable password password
+vlan 10
+int vlan 10
+ip address 10.0.10.1 255.255.255.0
+des < insert description here
+exit
+exit
+>>
+wr
+copy run start
